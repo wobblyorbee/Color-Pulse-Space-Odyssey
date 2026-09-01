@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>COLOR PULSE: Space Odyssey — Cyber Astronaut Arcade</title>
+  <meta name="description" content="Game arcade modern astronot luar angkasa dengan rintangan bertema galaksi, karakter kustom, dan mode misi seru!">
+  <link rel="stylesheet" href="css/colorswitch.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%2300f5d4'/><text y='62' x='50' font-size='50' text-anchor='middle'>👨‍🚀</text></svg>">
+</head>
+<body>
+  <div class="ambient-glow ambient-1"></div>
+  <div class="ambient-glow ambient-2"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       GAME VIEWPORT — Full Window
+       ═══════════════════════════════════════════════════════════════ -->
+  <div id="game-viewport">
+    <canvas id="game-canvas"></canvas>
+
+    <!-- In-Game Live HUD (shown only while playing) -->
+    <div id="hud-overlay" class="hud-hidden">
+      <div class="hud-left">
+        <button class="icon-btn" id="btn-hud-pause" title="Pause / Menu">⏸</button>
+        <div class="hud-score" id="hud-score-val">0</div>
+      </div>
+
+      <div id="level-progress-wrap">
+        <div class="lp-label" id="lp-mission-label">MISI 1</div>
+        <div id="level-progress-bar"></div>
+      </div>
+
+      <div class="hud-right">
+        <div class="star-counter-pill">
+          <span>⭐</span><span id="player-stars-val">0</span>
+        </div>
+        <button class="icon-btn" id="btn-sound-toggle" title="Mute">🔊</button>
+        <button class="icon-btn" id="btn-fullscreen-toggle" title="Fullscreen (F)">⛶</button>
+      </div>
+    </div>
+
+    <!-- PC Controls badge -->
+    <div class="pc-controls-badge" id="controls-badge">
+      <span>Jump:</span>
+      <span class="key-badge">SPACE</span>
+      <span class="key-badge">↑</span>
+      <span class="key-badge">W</span>
+      <span class="key-badge">CLICK</span>
+      <span style="margin-left:8px;">Fullscreen:</span>
+      <span class="key-badge">F</span>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         HOME MENU — PC Widescreen Split Layout
+         ═══════════════════════════════════════════════════════════ -->
+    <div id="screen-home" class="screen-overlay">
+
+      <!-- LEFT SIDEBAR: Mode Selector + Map Info -->
+      <aside class="menu-sidebar" id="menu-sidebar">
+        <!-- Logo -->
+        <div class="sidebar-logo">
+          <div class="logo-ring">
+            <div class="logo-inner">👨‍🚀</div>
+          </div>
+          <div>
+            <div class="game-title">COLOR PULSE</div>
+            <div class="game-subtitle">SPACE ODYSSEY</div>
+          </div>
+        </div>
+
+        <!-- Mode List (vertical, selectable) -->
+        <nav class="mode-nav">
+          <div class="mode-nav-label">SELECT MODE</div>
+          <button class="mode-btn" id="mode-btn-levels" data-mode="levels">
+            <span class="mode-btn-icon">🎯</span>
+            <div class="mode-btn-text">
+              <div class="mode-btn-title">Story Missions</div>
+              <div class="mode-btn-sub">15 unique objectives</div>
+            </div>
+            <span class="mode-btn-check">✓</span>
+          </button>
+          <button class="mode-btn" id="mode-btn-endless" data-mode="endless">
+            <span class="mode-btn-icon">🏆</span>
+            <div class="mode-btn-text">
+              <div class="mode-btn-title">Endless Run</div>
+              <div class="mode-btn-sub">How far can you go?</div>
+            </div>
+            <span class="mode-btn-check">✓</span>
+          </button>
+          <button class="mode-btn" id="mode-btn-rush" data-mode="rush">
+            <span class="mode-btn-icon">⚡</span>
+            <div class="mode-btn-text">
+              <div class="mode-btn-title">Speed Rush 2×</div>
+              <div class="mode-btn-sub">Double speed challenge</div>
+            </div>
+            <span class="mode-btn-check">✓</span>
+          </button>
+          <button class="mode-btn" id="mode-btn-reverse" data-mode="reverse">
+            <span class="mode-btn-icon">🔄</span>
+            <div class="mode-btn-text">
+              <div class="mode-btn-title">Mirror Mode</div>
+              <div class="mode-btn-sub">Gravity flipped!</div>
+            </div>
+            <span class="mode-btn-check">✓</span>
+          </button>
+        </nav>
+
+        <!-- Active Map badge -->
+        <div class="sidebar-footer">
+          <div class="active-equip-row">
+            <div class="equip-chip" id="sidebar-map-chip">🌌 Cyber Neon</div>
+            <div class="equip-chip" id="sidebar-astro-chip">👨‍🚀 Neo Visor</div>
+          </div>
+          <div class="best-score-row">
+            <span>Best:</span>
+            <strong id="lobby-best-score">0</strong>
+          </div>
+        </div>
+      </aside>
+
+      <!-- CENTER: Mission Brief / Mode Detail -->
+      <main class="menu-center">
+        <!-- Dynamic content injected by JS depending on selected mode -->
+        <div id="mission-brief-wrap"></div>
+      </main>
+
+      <!-- RIGHT PANEL: Action Buttons -->
+      <aside class="menu-right-panel">
+        <button class="btn-play" id="btn-play-game">
+          <span>🚀</span>
+          <span id="play-btn-label">LUNCURKAN MISI</span>
+        </button>
+
+        <div class="right-action-btns">
+          <button class="btn-menu-action" id="btn-open-hangar">
+            <span class="rba-icon">👨‍🚀</span>
+            <span class="rba-text">Hangar Kostum</span>
+          </button>
+          <button class="btn-menu-action" id="btn-open-levels-select">
+            <span class="rba-icon">🎯</span>
+            <span class="rba-text">Pilih Level</span>
+          </button>
+          <button class="btn-menu-action" id="btn-open-maps">
+            <span class="rba-icon">🌌</span>
+            <span class="rba-text">Pilih Sektor</span>
+          </button>
+        </div>
+
+        <div class="right-stats-grid">
+          <div class="stat-chip">
+            <div class="stat-val" id="stat-stars">0</div>
+            <div class="stat-lbl">⭐ Bintang</div>
+          </div>
+          <div class="stat-chip">
+            <div class="stat-val" id="stat-levels">1/15</div>
+            <div class="stat-lbl">🎯 Level</div>
+          </div>
+        </div>
+      </aside>
+    </div><!-- /screen-home -->
+
+    <!-- ═══════════════════════════════════════════════════════════
+         RESULT SCREEN
+         ═══════════════════════════════════════════════════════════ -->
+    <div id="screen-result" class="screen-overlay hidden">
+      <div class="result-card">
+        <div class="result-emoji" id="result-emoji">💥</div>
+        <h2 class="result-title" id="result-header">MISI GAGAL</h2>
+        <div class="result-score-wrap">
+          <div class="result-score-label">Skor Ekspedisi</div>
+          <div class="result-score-val" id="result-score-number">0</div>
+        </div>
+        <div class="result-best-badge" id="result-best-number">🏆 Rekor: 0</div>
+        <div class="star-counter-pill"><span>⭐</span><span id="result-stars-earned">+0 bintang</span></div>
+        <div class="result-actions">
+          <button class="btn-play" id="btn-retry-game">
+            <span>🔄</span><span id="btn-retry-text">COBA LAGI</span>
+          </button>
+          <button class="btn-menu-action" id="btn-result-menu">
+            <span>🏠</span><span>Menu Utama</span>
+          </button>
+          <button class="btn-menu-action" id="btn-result-hangar">
+            <span>👨‍🚀</span><span>Buka Hangar</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         MODAL: Hangar — Character Builder (3 tabs: Helm, Body, Jetpack)
+         ═══════════════════════════════════════════════════════════ -->
+    <div class="modal-overlay" id="modal-hangar">
+      <div class="modal-panel wide">
+        <div class="modal-header">
+          <h2 class="modal-title">👨‍🚀 Hangar Kustomisasi Astronot</h2>
+          <button class="icon-btn" id="btn-close-hangar">✕</button>
+        </div>
+
+        <div class="hangar-layout">
+          <!-- Preview panel -->
+          <div class="hangar-preview">
+            <canvas id="preview-canvas" width="200" height="200"></canvas>
+            <div class="preview-label">Preview Astronot</div>
+            <div class="preview-equipped-info" id="preview-info">
+              <div id="preview-helm-name">—</div>
+              <div id="preview-body-name">—</div>
+              <div id="preview-jet-name">—</div>
+            </div>
+          </div>
+
+          <!-- Parts selector -->
+          <div class="hangar-parts">
+            <div class="tab-pills-row">
+              <button class="tab-pill active" data-htab="htab-helm">🪖 Helm</button>
+              <button class="tab-pill" data-htab="htab-body">🧥 Pakaian</button>
+              <button class="tab-pill" data-htab="htab-jetpack">🚀 Jetpack</button>
+            </div>
+
+            <div class="shop-scroll-area" id="htab-helm"></div>
+            <div class="shop-scroll-area hidden" id="htab-body"></div>
+            <div class="shop-scroll-area hidden" id="htab-jetpack"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         MODAL: Level / Mission Selector
+         ═══════════════════════════════════════════════════════════ -->
+    <div class="modal-overlay" id="modal-levels-select">
+      <div class="modal-panel wide">
+        <div class="modal-header">
+          <h2 class="modal-title">🎯 Pilih Tahapan Misi</h2>
+          <button class="icon-btn" id="btn-close-levels">✕</button>
+        </div>
+        <p class="modal-sub">Capai Portal Kemenangan 🚀 di puncak untuk membuka misi berikutnya!</p>
+        <div class="level-grid" id="levels-container"></div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         MODAL: Sector (Map) Selector
+         ═══════════════════════════════════════════════════════════ -->
+    <div class="modal-overlay" id="modal-maps">
+      <div class="modal-panel">
+        <div class="modal-header">
+          <h2 class="modal-title">🌌 Pilih Sektor Galaksi</h2>
+          <button class="icon-btn" id="btn-close-maps">✕</button>
+        </div>
+        <div class="maps-list-wrap" id="maps-container"></div>
+      </div>
+    </div>
+
+    <!-- Hidden stars display for lobby -->
+    <div style="display:none;" id="lobby-map-name"></div>
+    <div style="display:none;" id="lobby-skin-name"></div>
+    <div style="display:none;" id="hud-stars-pill"></div>
+  </div><!-- /game-viewport -->
+
+  <!-- ─── SCRIPTS ─────────────────────────────────────────────── -->
+  <script src="js/cs_audio.js"></script>
+  <script src="js/cs_particles.js"></script>
+  <script src="js/cs_maps.js"></script>
+  <script src="js/cs_skins.js"></script>
+  <script src="js/cs_obstacles.js"></script>
+  <script src="js/cs_game.js"></script>
+</body>
+</html>

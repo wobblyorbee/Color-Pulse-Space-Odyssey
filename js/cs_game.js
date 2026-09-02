@@ -8,21 +8,21 @@
 // MISSION DATA (15 levels, each with unique brief)
 // ═══════════════════════════════════════════════════════════
 const MISSIONS = [
-  { id: 1,  name: 'Peluncuran Pertama',    sector: 'Stasiun Orbital Kelas-A',   icon: '🚀', desc: 'Astronot baru! Lewati rintangan pertamamu di orbit rendah bumi.', objectives: ['Selesaikan 3 rintangan','Kumpulkan 1 bintang'], reward: 10 },
-  { id: 2,  name: 'Badai Neon',            sector: 'Sabuk Asteroid Kelas-B',    icon: '⚡', desc: 'Badai elektromagnetik kosmik mengacaukan jalurmu!',            objectives: ['Selesaikan 5 rintangan','Tanpa salah warna'],   reward: 15 },
-  { id: 3,  name: 'Gerbang Siber',         sector: 'Kota Cyber-Orbit',          icon: '🌌', desc: 'Masuklah ke kota neon melayang di angkasa melalui gerbang pelindung.', objectives: ['Lewati cross-shield','Kumpulkan 2 bintang'], reward: 20 },
-  { id: 4,  name: 'Angin Vaporwave',       sector: 'Nebula Retro-Wave',         icon: '🌅', desc: 'Ombak plasma synthwave mendorong pesawatmu ke segala arah.',   objectives: ['Selesaikan 8 rintangan','Gunakan color switch 2×'], reward: 25 },
-  { id: 5,  name: 'Orbit Sang Raksasa',    sector: 'Planet Gas Zenith',         icon: '🪐', desc: 'Navigasi cincin orbital planet raksasa yang berputar cepat.',  objectives: ['Lewati double ring','Kumpulkan 3 bintang'],     reward: 30 },
-  { id: 6,  name: 'Kawah Aktif',           sector: 'Surtur — Planet Lava',      icon: '🌋', desc: 'Panas ekstrem! Lewati gear bergerigi lava yang memutar ganas.', objectives: ['Selesaikan 10 rintangan','Hindari bar lava 5×'],  reward: 35 },
-  { id: 7,  name: 'Gletser Kosmik',        sector: 'Kutub Es Cryon-9',          icon: '❄️', desc: 'Kristal es raksasa memblokir jalur menuju portal beku.',      objectives: ['Lewati snowflake spinner','Kumpulkan 4 bintang'],  reward: 40 },
-  { id: 8,  name: 'Labirin Sirkuit',       sector: 'Core Data Nexus',           icon: '🔷', desc: 'Sistem keamanan AI mengaktifkan perisai heksagonal berlapis.', objectives: ['Selesaikan 12 rintangan','Tanpa salah 3 berturut'], reward: 50 },
-  { id: 9,  name: 'Tarian Bintang',        sector: 'Gugus Bintang Orion-X',     icon: '✨', desc: 'Bintang-bintang menari dalam formasi rintangan kompleks.',     objectives: ['Kumpulkan 5 bintang','Selesaikan 14 rintangan'],  reward: 60 },
-  { id: 10, name: 'Inti Galaksi',          sector: 'Pusat Galaksi Andromeda',   icon: '🌀', desc: 'Gravitasi ekstrem mendistorsi ruang dan waktu di sekitarmu.', objectives: ['Lewati double ring 3×','Gunakan color switch 5×'], reward: 70 },
-  { id: 11, name: 'Batas Supernova',       sector: 'Zona Ledakan Nova-Alpha',   icon: '💥', desc: 'Supernova kuno melepaskan gelombang energi yang masif.',      objectives: ['Selesaikan 16 rintangan','Kumpulkan 6 bintang'],   reward: 80 },
-  { id: 12, name: 'Portal Dimensi',        sector: 'Persimpangan Multiverse',   icon: '🔮', desc: 'Antarkan dirimu melalui portal yang menghubungkan dimensi.',  objectives: ['Lewati semua jenis rintangan','Tanpa jatuh'],       reward: 90 },
-  { id: 13, name: 'Armada Gelap',          sector: 'Wilayah Void-Nebula',       icon: '👾', desc: 'Armada alien menghadang jalurmu dengan formasi tempur.',      objectives: ['Selesaikan 18 rintangan','Kumpulkan 8 bintang'],   reward: 100 },
-  { id: 14, name: 'Puncak Kosmik',         sector: 'Puncak Tertinggi Galaksi',  icon: '🏔️', desc: 'Hampir sampai! Rintangan terakhir sebelum tujuan akhir.',    objectives: ['Selesaikan 20 rintangan','Gunakan semua switch'],   reward: 120 },
-  { id: 15, name: 'Sang Penjelajah Abadi', sector: 'Batas Alam Semesta',        icon: '🌟', desc: 'Kamu adalah Penjelajah Kosmik Terhebat sepanjang masa!',      objectives: ['Capai portal terakhir','Sempurnakan misi'],         reward: 150 },
+  { id: 1, name: 'Peluncuran Pertama', sector: 'Stasiun Orbital Kelas-A', icon: '🚀', desc: 'Astronot baru! Lewati rintangan pertamamu di orbit rendah bumi.', objectives: ['Selesaikan 3 rintangan', 'Kumpulkan 1 bintang'], reward: 10 },
+  { id: 2, name: 'Badai Neon', sector: 'Sabuk Asteroid Kelas-B', icon: '⚡', desc: 'Badai elektromagnetik kosmik mengacaukan jalurmu!', objectives: ['Selesaikan 5 rintangan', 'Tanpa salah warna'], reward: 15 },
+  { id: 3, name: 'Gerbang Siber', sector: 'Kota Cyber-Orbit', icon: '🌌', desc: 'Masuklah ke kota neon melayang di angkasa melalui gerbang pelindung.', objectives: ['Lewati cross-shield', 'Kumpulkan 2 bintang'], reward: 20 },
+  { id: 4, name: 'Angin Vaporwave', sector: 'Nebula Retro-Wave', icon: '🌅', desc: 'Ombak plasma synthwave mendorong pesawatmu ke segala arah.', objectives: ['Selesaikan 8 rintangan', 'Gunakan color switch 2×'], reward: 25 },
+  { id: 5, name: 'Orbit Sang Raksasa', sector: 'Planet Gas Zenith', icon: '🪐', desc: 'Navigasi cincin orbital planet raksasa yang berputar cepat.', objectives: ['Lewati double ring', 'Kumpulkan 3 bintang'], reward: 30 },
+  { id: 6, name: 'Kawah Aktif', sector: 'Surtur — Planet Lava', icon: '🌋', desc: 'Panas ekstrem! Lewati gear bergerigi lava yang memutar ganas.', objectives: ['Selesaikan 10 rintangan', 'Hindari bar lava 5×'], reward: 35 },
+  { id: 7, name: 'Gletser Kosmik', sector: 'Kutub Es Cryon-9', icon: '❄️', desc: 'Kristal es raksasa memblokir jalur menuju portal beku.', objectives: ['Lewati snowflake spinner', 'Kumpulkan 4 bintang'], reward: 40 },
+  { id: 8, name: 'Labirin Sirkuit', sector: 'Core Data Nexus', icon: '🔷', desc: 'Sistem keamanan AI mengaktifkan perisai heksagonal berlapis.', objectives: ['Selesaikan 12 rintangan', 'Tanpa salah 3 berturut'], reward: 50 },
+  { id: 9, name: 'Tarian Bintang', sector: 'Gugus Bintang Orion-X', icon: '✨', desc: 'Bintang-bintang menari dalam formasi rintangan kompleks.', objectives: ['Kumpulkan 5 bintang', 'Selesaikan 14 rintangan'], reward: 60 },
+  { id: 10, name: 'Inti Galaksi', sector: 'Pusat Galaksi Andromeda', icon: '🌀', desc: 'Gravitasi ekstrem mendistorsi ruang dan waktu di sekitarmu.', objectives: ['Lewati double ring 3×', 'Gunakan color switch 5×'], reward: 70 },
+  { id: 11, name: 'Batas Supernova', sector: 'Zona Ledakan Nova-Alpha', icon: '💥', desc: 'Supernova kuno melepaskan gelombang energi yang masif.', objectives: ['Selesaikan 16 rintangan', 'Kumpulkan 6 bintang'], reward: 80 },
+  { id: 12, name: 'Portal Dimensi', sector: 'Persimpangan Multiverse', icon: '🔮', desc: 'Antarkan dirimu melalui portal yang menghubungkan dimensi.', objectives: ['Lewati semua jenis rintangan', 'Tanpa jatuh'], reward: 90 },
+  { id: 13, name: 'Armada Gelap', sector: 'Wilayah Void-Nebula', icon: '👾', desc: 'Armada alien menghadang jalurmu dengan formasi tempur.', objectives: ['Selesaikan 18 rintangan', 'Kumpulkan 8 bintang'], reward: 100 },
+  { id: 14, name: 'Puncak Kosmik', sector: 'Puncak Tertinggi Galaksi', icon: '🏔️', desc: 'Hampir sampai! Rintangan terakhir sebelum tujuan akhir.', objectives: ['Selesaikan 20 rintangan', 'Gunakan semua switch'], reward: 120 },
+  { id: 15, name: 'Sang Penjelajah Abadi', sector: 'Batas Alam Semesta', icon: '🌟', desc: 'Kamu adalah Penjelajah Kosmik Terhebat sepanjang masa!', objectives: ['Capai portal terakhir', 'Sempurnakan misi'], reward: 150 },
 ];
 
 // ═══════════════════════════════════════════════════════════
@@ -31,70 +31,71 @@ const MISSIONS = [
 class ColorSwitchGame {
   constructor() {
     this.canvas = document.getElementById('game-canvas');
-    this.ctx    = this.canvas.getContext('2d');
+    this.ctx = this.canvas.getContext('2d');
 
     // Virtual widescreen coords (height-fixed at 540, width responsive)
-    this.virtualWidth  = 960;
+    this.virtualWidth = 960;
     this.virtualHeight = 540;
-    this.centerX       = 480;
-    this.canvasScale   = 1;
+    this.centerX = 480;
+    this.canvasScale = 1;
     this.setupCanvasDPI();
     window.addEventListener('resize', () => this.setupCanvasDPI());
 
     // State
-    this.state       = 'MENU';
-    this.mode        = 'levels';   // default: Story Missions
+    this.state = 'MENU';
+    this.mode = 'levels';   // default: Story Missions
     this.currentLevel = 1;
-    this.isFrozen    = true;
-    this.frostPulse  = 0;
+    this.isFrozen = true;
+    this.frostPulse = 0;
 
     // Progress
-    this.score           = 0;
-    this.bestScore       = parseInt(localStorage.getItem('cp_best_score') || '0', 10);
-    this.playerStars     = parseInt(localStorage.getItem('cp_player_stars') || '0', 10);
-    this.starsEarnedRun  = 0;
-    this.unlockedLevels  = JSON.parse(localStorage.getItem('cp_unlocked_levels') || '[1]');
-    this.levelStars      = JSON.parse(localStorage.getItem('cp_level_stars') || '{}');
+    this.score = 0;
+    this.bestScore = parseInt(localStorage.getItem('cp_best_score') || '0', 10);
+    this.playerStars = parseInt(localStorage.getItem('cp_player_stars') || '0', 10);
+    this.starsEarnedRun = 0;
+    this.unlockedLevels = JSON.parse(localStorage.getItem('cp_unlocked_levels') || '[1]');
+    this.levelStars = JSON.parse(localStorage.getItem('cp_level_stars') || '{}');
 
-    // Physics — short precise hops
-    this.gravity        = 0.26;
-    this.jumpForce      = -4.8;
-    this.maxVy          = 5.8;
+    // Physics — floaty hops
+    this.gravity = 0.50;
+    this.jumpForce = -6.0;
+    this.maxVy = 4.5;
     this.speedMultiplier = 1.0;
 
     // Camera & World
     this.cameraY = 0;
     this.initialY = 440;
     this.ball = { x: 480, y: 440, radius: 14, vy: 0, color: '#00f5d4', rot: 0, squashX: 1, squashY: 1 };
-    this.obstacles   = [];
+    this.obstacles = [];
     this.collectibles = [];
-    this.nextSpawnY  = 220;
+    this.ambientObjects = [];
+    this.nextSpawnY = 220;
     this.levelStartY = 440;
     this.levelFinishY = 0;
 
     // DOM refs
-    this.hudScore    = document.getElementById('hud-score-val');
-    this.hudEl       = document.getElementById('hud-overlay');
-    this.screenHome  = document.getElementById('screen-home');
+    this.hudScore = document.getElementById('hud-score-val');
+    this.hudEl = document.getElementById('hud-overlay');
+    this.screenHome = document.getElementById('screen-home');
     this.screenResult = document.getElementById('screen-result');
-    this.lvlWrap     = document.getElementById('level-progress-wrap');
-    this.lvlBar      = document.getElementById('level-progress-bar');
+    this.lvlWrap = document.getElementById('level-progress-wrap');
+    this.lvlBar = document.getElementById('level-progress-bar');
 
     // Preview canvas for character builder
     this.previewCanvas = document.getElementById('preview-canvas');
-    this.previewCtx    = this.previewCanvas?.getContext('2d');
+    this.previewCtx = this.previewCanvas?.getContext('2d');
 
     this.init();
   }
 
   setupCanvasDPI() {
     const w = window.innerWidth, h = window.innerHeight, dpr = window.devicePixelRatio || 1;
-    this.canvas.width  = w * dpr;
+    this.canvas.width = w * dpr;
     this.canvas.height = h * dpr;
-    this.canvasScale   = (h * dpr) / 540;
-    this.virtualWidth  = (w * dpr) / this.canvasScale;
+    this.canvasScale = (h * dpr) / 540;
+    this.virtualWidth = (w * dpr) / this.canvasScale;
     this.virtualHeight = 540;
-    this.centerX       = this.virtualWidth / 2;
+    this.centerX = this.virtualWidth / 2;
     this.ctx.setTransform(this.canvasScale, 0, 0, this.canvasScale, 0, 0);
     if (this.state === 'MENU') this.ball.x = this.centerX;
   }
@@ -112,13 +113,17 @@ class ColorSwitchGame {
   }
 
   updateStats() {
-    document.getElementById('player-stars-val').textContent = this.playerStars;
-    document.getElementById('stat-stars').textContent       = this.playerStars;
     const maxUnlocked = Math.max(...this.unlockedLevels);
-    document.getElementById('stat-levels').textContent      = `${maxUnlocked}/15`;
-    document.getElementById('lobby-best-score').textContent = this.bestScore;
-    document.getElementById('sidebar-map-chip').textContent = `${mapManager.getActiveMap().icon} ${mapManager.getActiveMap().name}`;
-    document.getElementById('sidebar-astro-chip').textContent = `👨‍🚀 ${skinManager.helmParts.find(h=>h.id===skinManager.activeHelm)?.name||'Astronaut'}`;
+    const setTxt = (id, txt) => { const e = document.getElementById(id); if (e) e.textContent = txt; };
+    setTxt('player-stars-val', this.playerStars);
+    setTxt('stat-stars', this.playerStars);
+    setTxt('shop-sidebar-stars', this.playerStars);
+    setTxt('modal-hangar-stars', this.playerStars);
+    setTxt('modal-maps-stars', this.playerStars);
+    setTxt('stat-levels', `${maxUnlocked}/15`);
+    setTxt('lobby-best-score', this.bestScore);
+    setTxt('sidebar-map-chip', `${mapManager.getActiveMap().icon} ${mapManager.getActiveMap().name}`);
+    setTxt('sidebar-astro-chip', `👨‍🚀 ${skinManager.helmParts.find(h => h.id === skinManager.activeHelm)?.name || 'Astronaut'}`);
   }
 
   // ─── MODE SELECTION ────────────────────────────────────────
@@ -128,10 +133,7 @@ class ColorSwitchGame {
       b.classList.toggle('active', b.dataset.mode === mode);
     });
     const playLabel = document.getElementById('play-btn-label');
-    if (mode === 'levels')  playLabel.textContent = 'LUNCURKAN MISI';
-    else if (mode === 'endless') playLabel.textContent = 'MULAI ENDLESS';
-    else if (mode === 'rush')    playLabel.textContent = 'RUSH 2× START';
-    else if (mode === 'reverse') playLabel.textContent = 'MIRROR MODE GO';
+    if (playLabel) playLabel.textContent = 'PLAY';
     this.renderMissionBrief(mode, this.currentLevel);
   }
 
@@ -170,7 +172,6 @@ class ColorSwitchGame {
     } else {
       const info = {
         endless: { icon: '🏆', title: 'Endless Run', desc: 'Tidak ada batas — lompat setinggi mungkin melewati rintangan tanpa henti! Skor bertambah setiap rintangan berhasil dilewati. Seberapa jauh kamu bisa bertahan?', badge: `🏆 Best: ${this.bestScore}` },
-        rush:    { icon: '⚡', title: 'Speed Rush 2×', desc: 'Mode kecepatan ganda! Semua rintangan berputar dan bergerak 2× lebih cepat dari normal. Dibutuhkan refleks super untuk bertahan!', badge: '⚡ Butuh refleks cepat!' },
         reverse: { icon: '🔄', title: 'Mirror Mode', desc: 'Gravitasi dibalik! Astronotmu sekarang jatuh ke atas, bukan ke bawah. Tombol jump membuat astronot turun. Adaptasikan insting terbangmu!', badge: '🔄 Gravitasi terbalik' },
       }[mode];
       wrap.innerHTML = `
@@ -182,17 +183,47 @@ class ColorSwitchGame {
         </div>`;
     }
     wrap.querySelector('.mission-card, .mode-overview-card')?.animate(
-      [{opacity: 0, transform: 'translateY(8px)'}, {opacity: 1, transform: 'translateY(0)'}],
+      [{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'translateY(0)' }],
       { duration: 220, easing: 'ease-out', fill: 'forwards' }
     );
   }
 
   // ─── GAME LIFECYCLE ────────────────────────────────────────
   startGame(mode = this.mode, level = this.currentLevel) {
+    if (mode === 'levels') {
+      this.showLevelDialogue(level);
+    } else {
+      this.doStartGame(mode, level);
+    }
+  }
+
+  showLevelDialogue(level) {
+    this.screenHome.classList.add('hidden');
+    const mission = MISSIONS[Math.min(level, 15) - 1];
+    document.getElementById('dialogue-text-val').textContent = `"${mission.desc}"`;
+    const overlay = document.getElementById('screen-dialogue');
+    overlay.classList.remove('hidden');
+
+    this.drawAvatarToCanvas('dialogue-avatar-canvas', 6.5);
+
+    const proceed = () => {
+      overlay.removeEventListener('click', proceed);
+      window.removeEventListener('keydown', keyProceed);
+      overlay.classList.add('hidden');
+      this.doStartGame('levels', level);
+    };
+    const keyProceed = (e) => {
+      if (['Space', 'Enter'].includes(e.code)) { e.preventDefault(); proceed(); }
+    };
+    overlay.addEventListener('click', proceed);
+    window.addEventListener('keydown', keyProceed);
+  }
+
+  doStartGame(mode, level) {
     this.mode = mode; this.currentLevel = level;
     this.state = 'PLAYING'; this.isFrozen = true; this.frostPulse = 0;
     this.score = 0; this.starsEarnedRun = 0;
-    this.speedMultiplier = mode === 'rush' ? 1.4 : 1.0;
+    this.speedMultiplier = mode === 'rush' ? 2.5 : 1.0;
 
     this.screenHome.classList.add('hidden');
     this.screenResult.classList.add('hidden');
@@ -220,25 +251,47 @@ class ColorSwitchGame {
     const mapId = mapManager.getActiveMap().id;
     const types = ['circle', 'cross', 'double_circle', 'square', 'sliding_bars'];
     for (let i = 0; i < count; i++) {
-      const type  = types[(i + levelNum - 1) % types.length];
-      const speed = (0.018 + levelNum * 0.0025) * (i % 2 === 0 ? 1 : -1);
+      const type = types[(i + levelNum - 1) % types.length];
+
+      let variance = 1;
+      const r = Math.random();
+      if (r > 0.55) variance = r > 0.77 ? 0.8 : 1.25;
+      let speed = (0.026 + levelNum * 0.0035) * (i % 2 === 0 ? 1 : -1) * variance;
+
+      let gap = 380;
+      if (type === 'cross') {
+        gap += 60;
+        if (speed > 0) speed *= 0.45;
+      }
+
       this.obstacles.push(this._makeObstacle(type, cy, speed, colors, cx, sw, mapId));
       this.collectibles.push(new StarItem(cy, cx));
-      if (i < count - 1) this.collectibles.push(new ColorSwitchOrb(cy - 150, cx, colors, mapId));
-      cy -= 310;
+      if (i < count - 1) this.collectibles.push(new ColorSwitchOrb(cy - 170, cx, colors, mapId));
+
+      cy -= gap;
     }
     this.levelFinishY = cy - 40;
-    this.collectibles.push(new FinishGate(this.levelFinishY, cx));
+    this.collectibles.push(new FinishGate(this.levelFinishY, cx, mapId));
   }
 
   spawnEndlessObstacle(colors, diff = this.score) {
     const cx = this.centerX, sw = this.virtualWidth;
     const mapId = mapManager.getActiveMap().id;
     let type, speed, gap;
-    if      (diff <= 2)  { type = 'circle'; speed = 0.018 * (Math.random()>.5?1:-1); gap = 360; }
-    else if (diff <= 5)  { type = Math.random()>.5 ? 'circle' : 'square'; speed = 0.022 * (Math.random()>.5?1:-1); gap = 330; }
-    else if (diff <= 9)  { type = ['circle','square','cross','sliding_bars'][Math.floor(Math.random()*4)]; speed = 0.025 * (Math.random()>.5?1:-1); gap = 305; }
-    else                 { type = ['circle','double_circle','cross','square','sliding_bars'][Math.floor(Math.random()*5)]; speed = (0.026 + Math.min(diff*.001,.015)) * (Math.random()>.5?1:-1); gap = 290; }
+    if (diff <= 1) { type = 'circle'; speed = 0.045 * (Math.random() > .5 ? 1 : -1); gap = 400; }
+    else if (diff <= 3) { type = Math.random() > .5 ? 'circle' : 'square'; speed = 0.050 * (Math.random() > .5 ? 1 : -1); gap = 380; }
+    else if (diff <= 6) { type = ['circle', 'square', 'cross', 'sliding_bars'][Math.floor(Math.random() * 4)]; speed = 0.055 * (Math.random() > .5 ? 1 : -1); gap = 360; }
+    else { type = ['circle', 'double_circle', 'cross', 'square', 'sliding_bars'][Math.floor(Math.random() * 5)]; speed = (0.060 + Math.min(diff * .002, .03)) * (Math.random() > .5 ? 1 : -1); gap = 340; }
+
+    let variance = 1;
+    const r = Math.random();
+    if (r > 0.55) variance = r > 0.77 ? 0.8 : 1.25;
+    speed *= variance;
+
+    if (type === 'cross') {
+      gap += 70;
+      if (speed > 0) speed *= 0.45;
+    }
     this.obstacles.push(this._makeObstacle(type, this.nextSpawnY, speed, colors, cx, sw, mapId));
     this.collectibles.push(new StarItem(this.nextSpawnY, cx));
     this.collectibles.push(new ColorSwitchOrb(this.nextSpawnY - gap * .48, cx, colors, mapId));
@@ -247,11 +300,11 @@ class ColorSwitchGame {
 
   _makeObstacle(type, y, speed, colors, cx, sw, mapId) {
     switch (type) {
-      case 'circle':        return new CircleObstacle(y, 100, 14, speed, colors, cx, mapId);
+      case 'circle': return new CircleObstacle(y, 100, 14, speed, colors, cx, mapId);
       case 'double_circle': return new DoubleCircleObstacle(y, 118, 74, 13, speed, colors, cx, mapId);
-      case 'cross':         return new CrossObstacle(y, 85, 15, speed, colors, cx, mapId);
-      case 'square':        return new SquareObstacle(y, 155, 14, speed, colors, cx, mapId);
-      case 'sliding_bars':  return new SlidingBarsObstacle(y, colors, 2.4, cx, sw, mapId);
+      case 'cross': return new CrossObstacle(y, 130, 15, speed, colors, cx, mapId);
+      case 'square': return new SquareObstacle(y, 155, 14, speed, colors, cx, mapId);
+      case 'sliding_bars': return new SlidingBarsObstacle(y, colors, 2.4, cx, sw, mapId);
     }
   }
 
@@ -272,13 +325,17 @@ class ColorSwitchGame {
     this.ball.vy = this.mode === 'reverse' ? -this.jumpForce : this.jumpForce;
     this.ball.squashX = 0.86; this.ball.squashY = 1.16;
     const trail = skinManager.getActiveTrail();
-    for (let i = 0; i < 6; i++) particleEngine.addBallTrail(this.ball.x-8, this.ball.y+10, this.ball.radius, this.ball.color, trail.id);
+    for (let i = 0; i < 6; i++) particleEngine.addBallTrail(this.ball.x - 8, this.ball.y + 10, this.ball.radius, this.ball.color, trail.id);
   }
 
   // ─── UPDATE ────────────────────────────────────────────────
   update() {
     particleEngine.update(this.virtualWidth, this.virtualHeight, this.cameraY);
     if (this.state !== 'PLAYING') return;
+
+    if (!this.isFrozen && Math.random() < 0.002) {
+      this.showMidGamePopup();
+    }
 
     if (this.isFrozen) { this.frostPulse += 0.05; this.ball.y = this.initialY; this.ball.vy = 0; return; }
 
@@ -309,7 +366,7 @@ class ColorSwitchGame {
     // Spawn & recycle (endless)
     if (this.mode !== 'levels') {
       if (this.ball.y - 650 < this.nextSpawnY) this.spawnEndlessObstacle(mapManager.getActiveMap().colors, this.score);
-      this.obstacles    = this.obstacles.filter(o => o.y - this.cameraY < 1200);
+      this.obstacles = this.obstacles.filter(o => o.y - this.cameraY < 1200);
       this.collectibles = this.collectibles.filter(c => c.y - this.cameraY < 1200);
     } else {
       const td = this.levelStartY - this.levelFinishY;
@@ -317,27 +374,87 @@ class ColorSwitchGame {
       this.lvlBar.style.width = Math.min(100, Math.round(cd / td * 100)) + '%';
     }
 
+    // Ambient Objects (Meteors & Rockets on sides)
+    if (Math.random() < 0.005) {
+      const isLeft = Math.random() > 0.5;
+      const x = isLeft ? Math.random() * 150 + 20 : this.virtualWidth - Math.random() * 150 - 20;
+      const y = this.cameraY - 200;
+      const speedY = 1 + Math.random() * 3;
+      const type = Math.random() > 0.5 ? 'meteor' : 'rocket';
+      this.ambientObjects.push({ x, y, speedY, type, rot: Math.random() * Math.PI * 2 });
+    }
+
+    this.ambientObjects.forEach(obj => {
+      obj.y += obj.speedY;
+      obj.rot += 0.01;
+    });
+    this.ambientObjects = this.ambientObjects.filter(obj => obj.y < this.cameraY + this.virtualHeight + 200);
+
     // Collectibles
     const activeMap = mapManager.getActiveMap();
-    this.collectibles.forEach(item => {
-      item.update();
-      if (item.checkCollision(this.ball)) {
-        if (item instanceof StarItem) {
-          audio.playStarPickup();
-          particleEngine.createStarBurst(item.x, item.y, '#fee440');
-          this.playerStars++; this.starsEarnedRun++;
-          document.getElementById('player-stars-val').textContent = this.playerStars;
-          this.saveProgress();
-        } else if (item instanceof ColorSwitchOrb) {
-          audio.playColorSwitch();
-          particleEngine.createShockwave(item.x, item.y, this.ball.color, 80);
-          const others = activeMap.colors.filter(c => c !== this.ball.color);
+    this.collectibles.forEach(c => {
+      c.update();
+      if (c.checkCollision(this.ball)) {
+        if (c instanceof StarItem) {
+          audio.playStarPickup && audio.playStarPickup();
+          particleEngine.createStarBurst(c.x, c.y, '#fee440');
+          this.starsEarnedRun++;
+          this.playerStars++;
+          this.score++; // Immediate point
+
+          this.hudScore.textContent = this.score;
+          this.hudScore.style.transform = 'scale(1.5)';
+          this.hudScore.style.color = '#fee440';
+          setTimeout(() => {
+            this.hudScore.style.transform = 'scale(1)';
+            this.hudScore.style.color = '#fff';
+          }, 150);
+
+          this.updateStats();
+          c.y = -9999; // Remove
+        } else if (c instanceof ColorSwitchOrb) {
+          audio.playColorSwitch && audio.playColorSwitch();
+          particleEngine.createShockwave(c.x, c.y, this.ball.color, 80);
+          const others = activeMap.colors.filter(col => col !== this.ball.color);
           this.ball.color = others[Math.floor(Math.random() * others.length)];
-        } else if (item instanceof FinishGate) {
+          c.y = -9999; // Remove
+        } else if (c instanceof FinishGate) {
           this.triggerLevelVictory();
         }
       }
     });
+  }
+
+  showMidGamePopup() {
+    const toast = document.getElementById('toast-container');
+    if (toast.style.right === '20px') return;
+    const quotes = [
+      "Wah ini sungguh membahayakan!",
+      "Saya harus segera sampai!",
+      "Kecepatan warp aktif!",
+      "Rintangan di depan, hati-hati!",
+      "Awas jatuh!"
+    ];
+    document.getElementById('toast-text').textContent = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
+
+    this.drawAvatarToCanvas('toast-avatar-canvas', 1.2);
+
+    toast.style.right = '20px';
+    setTimeout(() => { toast.style.right = '-350px'; }, 3000);
+  }
+
+  drawAvatarToCanvas(canvasId, scale = 1) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const skin = skinManager.getActiveSkin();
+    const map = mapManager.getActiveMap();
+    ctx.save();
+    ctx.translate(canvas.width / 2, canvas.height / 2);
+    ctx.scale(scale, scale);
+    skin.draw(ctx, 0, 0, 14, map.colors[0] || '#00f5d4', 0, 0);
+    ctx.restore();
   }
 
   // ─── GAME OVER / VICTORY ───────────────────────────────────
@@ -364,20 +481,20 @@ class ColorSwitchGame {
 
   showResult(isVictory) {
     this.hudEl.classList.add('hud-hidden');
-    document.getElementById('result-emoji').textContent  = isVictory ? '🏆' : '💥';
+    document.getElementById('result-emoji').textContent = isVictory ? '🏆' : '💥';
     document.getElementById('result-header').textContent = isVictory ? `MISI ${this.currentLevel} BERHASIL!` : 'MISI GAGAL';
     document.getElementById('result-score-number').textContent = isVictory ? '⭐ ⭐ ⭐' : this.score;
-    document.getElementById('result-best-number').textContent  = isVictory ? 'Misi berikutnya terbuka!' : `🏆 Rekor: ${this.bestScore}`;
+    document.getElementById('result-best-number').textContent = isVictory ? 'Misi berikutnya terbuka!' : `🏆 Rekor: ${this.bestScore}`;
     document.getElementById('result-stars-earned').textContent = `+${this.starsEarnedRun} bintang kosmik!`;
-    document.getElementById('btn-retry-text').textContent      = isVictory && this.currentLevel < 15 ? 'MISI BERIKUTNYA ▶' : 'COBA LAGI';
+    document.getElementById('btn-retry-text').textContent = isVictory && this.currentLevel < 15 ? 'MISI BERIKUTNYA ▶' : 'COBA LAGI';
     this.screenResult.classList.remove('hidden');
   }
 
   saveProgress() {
-    localStorage.setItem('cp_best_score',       this.bestScore);
-    localStorage.setItem('cp_player_stars',     this.playerStars);
-    localStorage.setItem('cp_unlocked_levels',  JSON.stringify(this.unlockedLevels));
-    localStorage.setItem('cp_level_stars',      JSON.stringify(this.levelStars));
+    localStorage.setItem('cp_best_score', this.bestScore);
+    localStorage.setItem('cp_player_stars', this.playerStars);
+    localStorage.setItem('cp_unlocked_levels', JSON.stringify(this.unlockedLevels));
+    localStorage.setItem('cp_level_stars', JSON.stringify(this.levelStars));
     this.updateStats();
   }
 
@@ -389,18 +506,37 @@ class ColorSwitchGame {
     // Background
     ctx.fillStyle = map.bgColor; ctx.fillRect(0, 0, vw, vh);
     // Nebula glow
-    const ng = ctx.createRadialGradient(cx, vh/2, 80, cx, vh/2, 500);
+    const ng = ctx.createRadialGradient(cx, vh / 2, 80, cx, vh / 2, 500);
     ng.addColorStop(0, 'rgba(56,189,248,0.07)'); ng.addColorStop(.5, 'rgba(168,85,247,0.04)'); ng.addColorStop(1, 'rgba(0,0,0,0)');
     ctx.fillStyle = ng; ctx.fillRect(0, 0, vw, vh);
     // Grid
     ctx.strokeStyle = map.gridColor; ctx.lineWidth = 1;
     const gs = 50, goy = -this.cameraY % gs;
-    for (let x = 0; x <= vw; x += gs) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,vh); ctx.stroke(); }
-    for (let y = goy; y <= vh; y += gs) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(vw,y); ctx.stroke(); }
+    for (let x = 0; x <= vw; x += gs) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, vh); ctx.stroke(); }
+    for (let y = goy; y <= vh; y += gs) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(vw, y); ctx.stroke(); }
     // Side guides
     ctx.strokeStyle = 'rgba(0,245,212,0.08)'; ctx.lineWidth = 2;
     ctx.shadowColor = '#00f5d4'; ctx.shadowBlur = 8;
-    ctx.beginPath(); ctx.moveTo(cx-280,0); ctx.lineTo(cx-280,vh); ctx.moveTo(cx+280,0); ctx.lineTo(cx+280,vh); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(cx - 280, 0); ctx.lineTo(cx - 280, vh); ctx.moveTo(cx + 280, 0); ctx.lineTo(cx + 280, vh); ctx.stroke();
+
+    // Draw ambient objects on sides (full opacity)
+    ctx.shadowBlur = 0;
+    this.ambientObjects.forEach(obj => {
+      ctx.save();
+      ctx.translate(obj.x, obj.y - this.cameraY);
+      ctx.rotate(obj.rot);
+      if (obj.type === 'meteor') {
+        ctx.fillStyle = '#64748b';
+        ctx.beginPath(); ctx.arc(0, 0, 15, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#475569';
+        ctx.beginPath(); ctx.arc(-5, -5, 4, 0, Math.PI * 2); ctx.fill();
+        ctx.beginPath(); ctx.arc(6, 3, 3, 0, Math.PI * 2); ctx.fill();
+      } else {
+        ctx.font = '30px sans-serif';
+        ctx.fillText('🚀', -15, 10);
+      }
+      ctx.restore();
+    });
 
     particleEngine.drawAmbient(ctx);
     particleEngine.draw(ctx, this.cameraY);
@@ -414,33 +550,33 @@ class ColorSwitchGame {
       // Launch pad glow
       ctx.save();
       ctx.strokeStyle = 'rgba(0,245,212,0.65)'; ctx.shadowColor = '#00f5d4'; ctx.shadowBlur = 16; ctx.lineWidth = 3;
-      ctx.beginPath(); ctx.ellipse(px, py+28, 42, 13, 0, 0, Math.PI*2); ctx.stroke();
+      ctx.beginPath(); ctx.ellipse(px, py + 28, 42, 13, 0, 0, Math.PI * 2); ctx.stroke();
       ctx.fillStyle = 'rgba(0,245,212,0.12)'; ctx.fill(); ctx.restore();
       // Ice stasis shield
       ctx.save();
-      const fr = this.ball.radius + 9 + Math.sin(this.frostPulse)*2;
+      const fr = this.ball.radius + 9 + Math.sin(this.frostPulse) * 2;
       ctx.strokeStyle = '#bae6fd'; ctx.shadowColor = '#38bdf8'; ctx.shadowBlur = 18; ctx.lineWidth = 2.2;
-      ctx.setLineDash([7,4]);
-      ctx.beginPath(); ctx.arc(px, py, fr, 0, Math.PI*2); ctx.stroke();
+      ctx.setLineDash([7, 4]);
+      ctx.beginPath(); ctx.arc(px, py, fr, 0, Math.PI * 2); ctx.stroke();
       ctx.setLineDash([]);
       ctx.fillStyle = '#ffffff';
       for (let i = 0; i < 6; i++) {
-        const a = i*Math.PI/3 + this.frostPulse*.4;
-        ctx.beginPath(); ctx.arc(px+Math.cos(a)*(fr+3), py+Math.sin(a)*(fr+3), 2.5, 0, Math.PI*2); ctx.fill();
+        const a = i * Math.PI / 3 + this.frostPulse * .4;
+        ctx.beginPath(); ctx.arc(px + Math.cos(a) * (fr + 3), py + Math.sin(a) * (fr + 3), 2.5, 0, Math.PI * 2); ctx.fill();
       }
       ctx.restore();
       // Tooltip guide
       ctx.save();
-      const gy = py - 54 + Math.sin(this.frostPulse*1.5)*4;
+      const gy = py - 54 + Math.sin(this.frostPulse * 1.5) * 4;
       const txt = 'Tekan SPASI / Klik untuk Meluncur';
       ctx.font = '800 14px "Outfit", sans-serif';
       const pw = ctx.measureText(txt).width + 28, ph = 34;
       ctx.fillStyle = 'rgba(13,20,36,0.94)'; ctx.strokeStyle = '#00f5d4'; ctx.lineWidth = 1.8;
       ctx.shadowColor = '#00f5d4'; ctx.shadowBlur = 12;
-      ctx.beginPath(); ctx.roundRect(px-pw/2, gy-ph/2, pw, ph, 17); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.roundRect(px - pw / 2, gy - ph / 2, pw, ph, 17); ctx.fill(); ctx.stroke();
       ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       ctx.shadowBlur = 0; ctx.fillText(txt, px, gy);
-      ctx.font = '16px sans-serif'; ctx.fillText('👇', px, py-20);
+      ctx.font = '16px sans-serif'; ctx.fillText('👇', px, py - 20);
       ctx.restore();
     }
 
@@ -491,9 +627,10 @@ class ColorSwitchGame {
         el.appendChild(card);
       });
     };
-    buildGrid('htab-helm',    skinManager.helmParts,    () => skinManager.activeHelm,    (id,s) => skinManager.selectHelm(id,s));
-    buildGrid('htab-body',    skinManager.bodyParts,    () => skinManager.activeBody,    (id,s) => skinManager.selectBody(id,s));
-    buildGrid('htab-jetpack', skinManager.jetpackParts, () => skinManager.activeJetpack, (id,s) => skinManager.selectJetpack(id,s));
+    buildGrid('htab-helm', skinManager.helmParts, () => skinManager.activeHelm, (id, s) => skinManager.selectHelm(id, s));
+    buildGrid('htab-body', skinManager.bodyParts, () => skinManager.activeBody, (id, s) => skinManager.selectBody(id, s));
+    buildGrid('htab-jetpack', skinManager.jetpackParts, () => skinManager.activeJetpack, (id, s) => skinManager.selectJetpack(id, s));
+    buildGrid('htab-palette', skinManager.palettes, () => skinManager.activePalette, (id, s) => skinManager.selectPalette(id, s));
     this.drawPreview();
   }
 
@@ -506,18 +643,18 @@ class ColorSwitchGame {
     // Stars
     ctx.fillStyle = 'rgba(255,255,255,0.4)';
     for (let i = 0; i < 30; i++) {
-      ctx.beginPath(); ctx.arc(Math.random()*200, Math.random()*200, Math.random()*1.2, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(Math.random() * 200, Math.random() * 200, Math.random() * 1.2, 0, Math.PI * 2); ctx.fill();
     }
     const skin = skinManager.getActiveSkin();
     skin.draw(ctx, 100, 110, 28, mapManager.getActiveMap().colors[0], 0, 0);
 
     // Info
-    const h = skinManager.helmParts.find(p=>p.id===skinManager.activeHelm);
-    const b = skinManager.bodyParts.find(p=>p.id===skinManager.activeBody);
-    const j = skinManager.jetpackParts.find(p=>p.id===skinManager.activeJetpack);
-    document.getElementById('preview-helm-name').textContent   = `🪖 ${h?.name||'—'}`;
-    document.getElementById('preview-body-name').textContent   = `🧥 ${b?.name||'—'}`;
-    document.getElementById('preview-jet-name').textContent    = `🚀 ${j?.name||'—'}`;
+    const h = skinManager.helmParts.find(p => p.id === skinManager.activeHelm);
+    const b = skinManager.bodyParts.find(p => p.id === skinManager.activeBody);
+    const j = skinManager.jetpackParts.find(p => p.id === skinManager.activeJetpack);
+    document.getElementById('preview-helm-name').textContent = `🪖 ${h?.name || '—'}`;
+    document.getElementById('preview-body-name').textContent = `🧥 ${b?.name || '—'}`;
+    document.getElementById('preview-jet-name').textContent = `🚀 ${j?.name || '—'}`;
   }
 
   // ─── LEVEL GRID ────────────────────────────────────────────
@@ -526,7 +663,7 @@ class ColorSwitchGame {
     for (let i = 1; i <= 15; i++) {
       const unlocked = this.unlockedLevels.includes(i);
       const stars = this.levelStars[i] || 0;
-      const m = MISSIONS[i-1];
+      const m = MISSIONS[i - 1];
       const card = document.createElement('div');
       card.className = `level-card ${unlocked ? '' : 'locked'}`;
       card.innerHTML = `
@@ -558,8 +695,8 @@ class ColorSwitchGame {
           <div style="font-size:0.76rem;color:var(--muted-lt);">${map.desc}</div>
           <div class="map-swatches-row">${swatches}</div>
         </div>
-        <button class="shop-card-btn ${isActive?'btn-equipped':(map.isUnlocked?'btn-use':'btn-buy')}" style="width:96px;">
-          ${isActive?'✓ AKTIF':(map.isUnlocked?'PILIH':`⭐${map.starPrice}`)}
+        <button class="shop-card-btn ${isActive ? 'btn-equipped' : (map.isUnlocked ? 'btn-use' : 'btn-buy')}" style="width:96px;">
+          ${isActive ? '✓ AKTIF' : (map.isUnlocked ? 'PILIH' : `⭐${map.starPrice}`)}
         </button>`;
       card.onclick = () => {
         if (map.isUnlocked) {
@@ -581,7 +718,7 @@ class ColorSwitchGame {
   setupEventListeners() {
     // Jump
     window.addEventListener('keydown', e => {
-      if (['Space','ArrowUp'].includes(e.code) || ['w','W'].includes(e.key)) { e.preventDefault(); this.handleJump(); }
+      if (['Space', 'ArrowUp'].includes(e.code) || ['w', 'W'].includes(e.key)) { e.preventDefault(); this.handleJump(); }
       if (e.key === 'Escape') document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
       if (e.key === 'f' || e.key === 'F') this.toggleFullscreen();
     });
@@ -600,21 +737,21 @@ class ColorSwitchGame {
     };
 
     // Right panel buttons
-    document.getElementById('btn-open-hangar').onclick    = () => { audio.playClick && audio.playClick(); this.renderHangar(); document.getElementById('modal-hangar').classList.add('active'); };
+    document.getElementById('btn-open-hangar').onclick = () => { audio.playClick && audio.playClick(); this.renderHangar(); document.getElementById('modal-hangar').classList.add('active'); };
     document.getElementById('btn-open-levels-select').onclick = () => { audio.playClick && audio.playClick(); document.getElementById('modal-levels-select').classList.add('active'); };
-    document.getElementById('btn-open-maps').onclick      = () => { audio.playClick && audio.playClick(); this.renderMaps(); document.getElementById('modal-maps').classList.add('active'); };
+    document.getElementById('btn-open-maps').onclick = () => { audio.playClick && audio.playClick(); this.renderMaps(); document.getElementById('modal-maps').classList.add('active'); };
 
     // Close buttons
     document.getElementById('btn-close-hangar').onclick = () => document.getElementById('modal-hangar').classList.remove('active');
     document.getElementById('btn-close-levels').onclick = () => document.getElementById('modal-levels-select').classList.remove('active');
-    document.getElementById('btn-close-maps').onclick   = () => document.getElementById('modal-maps').classList.remove('active');
+    document.getElementById('btn-close-maps').onclick = () => document.getElementById('modal-maps').classList.remove('active');
 
     // Hangar tabs
     document.querySelectorAll('[data-htab]').forEach(tab => {
       tab.onclick = () => {
         document.querySelectorAll('[data-htab]').forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
-        ['htab-helm','htab-body','htab-jetpack'].forEach(id => {
+        ['htab-helm', 'htab-body', 'htab-jetpack'].forEach(id => {
           document.getElementById(id).classList.toggle('hidden', id !== tab.dataset.htab);
         });
       };
@@ -660,8 +797,8 @@ class ColorSwitchGame {
 
   toggleFullscreen() {
     !document.fullscreenElement
-      ? document.documentElement.requestFullscreen().catch(() => {})
-      : document.exitFullscreen().catch(() => {});
+      ? document.documentElement.requestFullscreen().catch(() => { })
+      : document.exitFullscreen().catch(() => { });
   }
 }
 

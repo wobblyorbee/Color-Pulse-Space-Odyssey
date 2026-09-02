@@ -55,18 +55,9 @@
          ═══════════════════════════════════════════════════════════ -->
     <div id="screen-home" class="screen-overlay">
 
-      <!-- LEFT SIDEBAR: Mode Selector + Map Info -->
+      <!-- LEFT SIDEBAR: Mode Selector + Shop -->
       <aside class="menu-sidebar" id="menu-sidebar">
-        <!-- Logo -->
-        <div class="sidebar-logo">
-          <div class="logo-ring">
-            <div class="logo-inner">👨‍🚀</div>
-          </div>
-          <div>
-            <div class="game-title">COLOR PULSE</div>
-            <div class="game-subtitle">SPACE ODYSSEY</div>
-          </div>
-        </div>
+        <!-- Sidebar Logo Area (Removed, moved to center) -->
 
         <!-- Mode List (vertical, selectable) -->
         <nav class="mode-nav">
@@ -74,7 +65,7 @@
           <button class="mode-btn" id="mode-btn-levels" data-mode="levels">
             <span class="mode-btn-icon">🎯</span>
             <div class="mode-btn-text">
-              <div class="mode-btn-title">Story Missions</div>
+              <div class="mode-btn-title">Classic Mode</div>
               <div class="mode-btn-sub">15 unique objectives</div>
             </div>
             <span class="mode-btn-check">✓</span>
@@ -82,28 +73,47 @@
           <button class="mode-btn" id="mode-btn-endless" data-mode="endless">
             <span class="mode-btn-icon">🏆</span>
             <div class="mode-btn-text">
-              <div class="mode-btn-title">Endless Run</div>
+              <div class="mode-btn-title">Endless Mode</div>
               <div class="mode-btn-sub">How far can you go?</div>
             </div>
             <span class="mode-btn-check">✓</span>
           </button>
-          <button class="mode-btn" id="mode-btn-rush" data-mode="rush">
-            <span class="mode-btn-icon">⚡</span>
-            <div class="mode-btn-text">
-              <div class="mode-btn-title">Speed Rush 2×</div>
-              <div class="mode-btn-sub">Double speed challenge</div>
-            </div>
-            <span class="mode-btn-check">✓</span>
-          </button>
+
           <button class="mode-btn" id="mode-btn-reverse" data-mode="reverse">
             <span class="mode-btn-icon">🔄</span>
             <div class="mode-btn-text">
-              <div class="mode-btn-title">Mirror Mode</div>
+              <div class="mode-btn-title">Reverse Mode</div>
               <div class="mode-btn-sub">Gravity flipped!</div>
             </div>
             <span class="mode-btn-check">✓</span>
           </button>
         </nav>
+
+        <div class="sidebar-action-btns" style="margin-top: 15px; display: flex; flex-direction: column; gap: 8px;">
+          <button class="btn-menu-action" id="btn-open-levels-select">
+            <span class="rba-icon">🎯</span>
+            <span class="rba-text">Pilih Level</span>
+          </button>
+
+          <div style="margin-top: 20px; text-align: center;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+              <div style="font-size: 2.2rem; font-weight: 900; color: #facc15; transform: rotate(-7deg); text-shadow: 0 0 10px rgba(250,204,21,0.6); font-family: 'Outfit', sans-serif;">SHOP</div>
+              <div style="font-size: 1.2rem; font-family: 'Courier New', monospace; color: #fff; background: rgba(0,0,0,0.5); padding: 4px 12px; border-radius: 20px; border: 1px solid #facc15;">
+                ⭐ <span id="shop-sidebar-stars">0</span>
+              </div>
+            </div>
+            <div style="font-size: 1.5rem; margin: 10px 0; color: #00f5d4; animation: bounce 1s infinite;">⬇️</div>
+          </div>
+
+          <button class="btn-menu-action" id="btn-open-hangar">
+            <span class="rba-icon">👨‍🚀</span>
+            <span class="rba-text">Astronaut Avatar</span>
+          </button>
+          <button class="btn-menu-action" id="btn-open-maps">
+            <span class="rba-icon">🎨</span>
+            <span class="rba-text">Space Palette</span>
+          </button>
+        </div>
 
         <!-- Active Map badge -->
         <div class="sidebar-footer">
@@ -111,52 +121,43 @@
             <div class="equip-chip" id="sidebar-map-chip">🌌 Cyber Neon</div>
             <div class="equip-chip" id="sidebar-astro-chip">👨‍🚀 Neo Visor</div>
           </div>
-          <div class="best-score-row">
-            <span>Best:</span>
-            <strong id="lobby-best-score">0</strong>
+          <div class="best-score-row" style="display:flex; justify-content:space-between; width: 100%;">
+            <div><span>Best:</span> <strong id="lobby-best-score">0</strong></div>
+            <div><span>⭐</span> <strong id="stat-stars">0</strong></div>
           </div>
         </div>
       </aside>
 
-      <!-- CENTER: Mission Brief / Mode Detail -->
-      <main class="menu-center">
+      <!-- CENTER: Mission Brief / Mode Detail / Play / Settings -->
+      <main class="menu-center" style="flex-direction: column; gap: 20px;">
+        
+        <!-- Game Title -->
+        <div class="center-title" style="text-align: center; margin-bottom: 10px;">
+          <div class="game-title" style="font-size: 3.5rem; font-weight: 900; background: linear-gradient(135deg, #00f5d4 0%, #fee440 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 25px rgba(0,245,212,0.5);">PULSE SPACE</div>
+        </div>
+
         <!-- Dynamic content injected by JS depending on selected mode -->
-        <div id="mission-brief-wrap"></div>
+        <div id="mission-brief-wrap" style="width: 100%; max-width: 460px;"></div>
+        
+        <div class="center-controls" style="display: flex; flex-direction: column; align-items: center; gap: 15px; width: 100%; max-width: 460px;">
+          <button class="btn-play" id="btn-play-game" style="width: 100%; padding: 20px; font-size: 1.8rem; letter-spacing: 2px;">
+            <span>🚀</span>
+            <span id="play-btn-label">PLAY</span>
+          </button>
+          
+          <div class="settings-panel" style="background: rgba(13,20,36,0.85); border: 1px solid var(--border); border-radius: var(--r-md); padding: 15px; width: 100%; display: flex; justify-content: space-around; backdrop-filter: blur(16px);">
+            <div class="setting-item" style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 1.2rem;">🎵</span>
+              <input type="range" id="vol-music" min="0" max="100" value="50" style="width: 100px;">
+            </div>
+            <div class="setting-item" style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 1.2rem;">🔊</span>
+              <input type="range" id="vol-sfx" min="0" max="100" value="80" style="width: 100px;">
+            </div>
+          </div>
+        </div>
       </main>
 
-      <!-- RIGHT PANEL: Action Buttons -->
-      <aside class="menu-right-panel">
-        <button class="btn-play" id="btn-play-game">
-          <span>🚀</span>
-          <span id="play-btn-label">LUNCURKAN MISI</span>
-        </button>
-
-        <div class="right-action-btns">
-          <button class="btn-menu-action" id="btn-open-hangar">
-            <span class="rba-icon">👨‍🚀</span>
-            <span class="rba-text">Hangar Kostum</span>
-          </button>
-          <button class="btn-menu-action" id="btn-open-levels-select">
-            <span class="rba-icon">🎯</span>
-            <span class="rba-text">Pilih Level</span>
-          </button>
-          <button class="btn-menu-action" id="btn-open-maps">
-            <span class="rba-icon">🌌</span>
-            <span class="rba-text">Pilih Sektor</span>
-          </button>
-        </div>
-
-        <div class="right-stats-grid">
-          <div class="stat-chip">
-            <div class="stat-val" id="stat-stars">0</div>
-            <div class="stat-lbl">⭐ Bintang</div>
-          </div>
-          <div class="stat-chip">
-            <div class="stat-val" id="stat-levels">1/15</div>
-            <div class="stat-lbl">🎯 Level</div>
-          </div>
-        </div>
-      </aside>
     </div><!-- /screen-home -->
 
     <!-- ═══════════════════════════════════════════════════════════
@@ -191,8 +192,13 @@
          ═══════════════════════════════════════════════════════════ -->
     <div class="modal-overlay" id="modal-hangar">
       <div class="modal-panel wide">
-        <div class="modal-header">
-          <h2 class="modal-title">👨‍🚀 Hangar Kustomisasi Astronot</h2>
+        <div class="modal-header" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <h2 class="modal-title">👨‍🚀 Astronaut Avatar</h2>
+            <div style="font-size: 1.2rem; font-family: 'Courier New', monospace; color: #fff; background: rgba(0,0,0,0.5); padding: 5px 15px; border-radius: 20px; border: 1px solid #facc15;">
+              ⭐ <span id="modal-hangar-stars">0</span>
+            </div>
+          </div>
           <button class="icon-btn" id="btn-close-hangar">✕</button>
         </div>
 
@@ -212,13 +218,15 @@
           <div class="hangar-parts">
             <div class="tab-pills-row">
               <button class="tab-pill active" data-htab="htab-helm">🪖 Helm</button>
-              <button class="tab-pill" data-htab="htab-body">🧥 Pakaian</button>
+              <button class="tab-pill" data-htab="htab-body">🔺 Geometri</button>
               <button class="tab-pill" data-htab="htab-jetpack">🚀 Jetpack</button>
+              <button class="tab-pill" data-htab="htab-palette">🎨 Palet Warna</button>
             </div>
 
             <div class="shop-scroll-area" id="htab-helm"></div>
             <div class="shop-scroll-area hidden" id="htab-body"></div>
             <div class="shop-scroll-area hidden" id="htab-jetpack"></div>
+            <div class="shop-scroll-area hidden" id="htab-palette"></div>
           </div>
         </div>
       </div>
@@ -243,11 +251,38 @@
          ═══════════════════════════════════════════════════════════ -->
     <div class="modal-overlay" id="modal-maps">
       <div class="modal-panel">
-        <div class="modal-header">
-          <h2 class="modal-title">🌌 Pilih Sektor Galaksi</h2>
+        <div class="modal-header" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <h2 class="modal-title">🎨 Space Palette</h2>
+            <div style="font-size: 1.2rem; font-family: 'Courier New', monospace; color: #fff; background: rgba(0,0,0,0.5); padding: 5px 15px; border-radius: 20px; border: 1px solid #facc15;">
+              ⭐ <span id="modal-maps-stars">0</span>
+            </div>
+          </div>
           <button class="icon-btn" id="btn-close-maps">✕</button>
         </div>
         <div class="maps-list-wrap" id="maps-container"></div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         ANIME DIALOGUE SCREEN (Pre-level)
+         ═══════════════════════════════════════════════════════════ -->
+    <div id="screen-dialogue" class="screen-overlay hidden" style="display:flex; background: rgba(4,7,13,0.95); z-index: 15; flex-direction: column; justify-content: flex-end; align-items: center; padding-bottom: 50px;">
+       <canvas id="dialogue-avatar-canvas" width="400" height="400" style="position: absolute; bottom: 0; left: 5%; opacity: 0.95; filter: drop-shadow(0 0 25px var(--cyan)); pointer-events: none;"></canvas>
+       <div class="dialogue-box" style="background: linear-gradient(90deg, rgba(13,20,36,0.95) 0%, rgba(13,20,36,0.7) 100%); border-left: 4px solid var(--cyan); padding: 30px; border-radius: 0 15px 15px 0; width: 70%; max-width: 800px; position: relative; z-index: 2; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+         <div class="dialogue-name" style="font-family: var(--display); font-weight: 900; color: var(--cyan); font-size: 1.4rem; margin-bottom: 10px; letter-spacing: 1px;">KAPTEN ASTRO</div>
+         <div class="dialogue-text" id="dialogue-text-val" style="font-size: 1.2rem; line-height: 1.6; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">"Kita harus segera sampai ke sini untuk menyelamatkan galaksi!"</div>
+         <div class="dialogue-hint" style="margin-top: 20px; font-size: 0.8rem; color: var(--muted-lt); text-align: right; animation: pulse 1.5s infinite;">Klik / Spasi untuk melanjutkan ➔</div>
+       </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         MID-GAME POPUP TOAST
+         ═══════════════════════════════════════════════════════════ -->
+    <div id="toast-container" style="position: absolute; right: -350px; top: 150px; transition: right 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); z-index: 6;">
+      <div class="toast-card" style="background: rgba(13,20,36,0.85); border: 1px solid var(--border); border-left: 3px solid var(--pink); border-radius: 8px; padding: 12px 16px; display: flex; align-items: center; gap: 12px; backdrop-filter: blur(8px);">
+        <canvas id="toast-avatar-canvas" width="60" height="60"></canvas>
+        <div id="toast-text" style="font-size: 0.9rem; font-weight: 600; line-height: 1.3;">"Wah ini sungguh membahayakan!"</div>
       </div>
     </div>
 

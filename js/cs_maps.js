@@ -91,7 +91,16 @@ class MapManager {
   }
 
   getActiveMap() {
-    return this.maps.find(m => m.id === this.activeMapId) || this.maps[0];
+    const map = this.maps.find(m => m.id === this.activeMapId) || this.maps[0];
+    
+    // Override colors if a global palette is selected
+    if (typeof skinManager !== 'undefined' && skinManager.activePalette && skinManager.activePalette !== 'pal_default') {
+      const pal = skinManager.palettes.find(p => p.id === skinManager.activePalette);
+      if (pal) {
+        return { ...map, colors: pal.colors };
+      }
+    }
+    return map;
   }
 
   selectMap(mapId) {

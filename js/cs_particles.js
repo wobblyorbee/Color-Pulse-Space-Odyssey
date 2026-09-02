@@ -14,7 +14,7 @@ class ParticleEngine {
   // Init ambient particles based on active map
   initAmbient(mapId, canvasWidth, canvasHeight) {
     this.ambientParticles = [];
-    const count = 45;
+    const count = 20;
     for (let i = 0; i < count; i++) {
       this.ambientParticles.push({
         x: Math.random() * canvasWidth,
@@ -98,7 +98,7 @@ class ParticleEngine {
 
   // Death Shatter Explosion (Shard Physics)
   createDeathShatter(x, y, color, allPaletteColors) {
-    const shardCount = 75;
+    const shardCount = 30;
     for (let i = 0; i < shardCount; i++) {
       const angle = Math.random() * Math.PI * 2;
       const speed = Math.random() * 9 + 3;
@@ -138,7 +138,7 @@ class ParticleEngine {
 
   // Star Collection Sparkle Burst
   createStarBurst(x, y, color = '#fee440') {
-    for (let i = 0; i < 24; i++) {
+    for (let i = 0; i < 12; i++) {
       const angle = Math.random() * Math.PI * 2;
       const speed = Math.random() * 5 + 2;
       this.particles.push({

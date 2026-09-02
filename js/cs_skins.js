@@ -101,85 +101,56 @@ const HELM_PARTS = [
 // ─── BODY PARTS ────────────────────────────────────────────────────────────
 const BODY_PARTS = [
   {
-    id: 'suit_white', name: 'White Space Suit', icon: '🧥', desc: 'Pakaian luar angkasa standar NASA warna putih klasik.',
+    id: 'geo_circle', name: 'Bulat', icon: '🔵', desc: 'Bentuk geometri bulat standar dengan senyum.',
     starPrice: 0, isUnlocked: true,
     draw(ctx, color) {
-      ctx.fillStyle = '#f8fafc'; ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 1.5;
-      ctx.beginPath(); ctx.ellipse(0, 12, 14, 16, 0, 0, Math.PI*2); ctx.fill(); ctx.stroke();
-      // Chest patch
-      ctx.fillStyle = color; ctx.shadowColor = color; ctx.shadowBlur = 8;
-      ctx.beginPath(); ctx.roundRect(-6, 4, 12, 8, 3); ctx.fill();
+      ctx.fillStyle = color; ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.arc(0, 10, 16, 0, Math.PI*2); ctx.fill(); ctx.stroke();
+      // Emote (Smile)
+      ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(-5, 6, 2, 0, Math.PI*2); ctx.arc(5, 6, 2, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(0, 10, 6, 0, Math.PI); ctx.stroke();
     }
   },
   {
-    id: 'suit_mecha', name: 'Mecha Armor', icon: '🤖', desc: 'Zirah robot berlapis titanium hitam dengan sendi energi.',
+    id: 'geo_square', name: 'Kotak', icon: '🟥', desc: 'Bentuk geometri kotak dengan ekspresi datar.',
     starPrice: 15, isUnlocked: false,
     draw(ctx, color) {
-      ctx.fillStyle = '#0f172a'; ctx.strokeStyle = '#38bdf8'; ctx.lineWidth = 2;
-      ctx.shadowColor = '#38bdf8'; ctx.shadowBlur = 8;
-      ctx.beginPath(); ctx.roundRect(-13, 0, 26, 28, 5); ctx.fill(); ctx.stroke();
-      ctx.fillStyle = color; ctx.shadowColor = color; ctx.shadowBlur = 12;
-      ctx.fillRect(-8, 8, 16, 8);
-      ctx.fillStyle = '#ffffff'; ctx.shadowBlur = 0;
-      ctx.beginPath(); ctx.arc(0, 22, 4, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = color; ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.roundRect(-14, -4, 28, 28, 4); ctx.fill(); ctx.stroke();
+      // Emote (Flat)
+      ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(-5, 6, 2, 0, Math.PI*2); ctx.arc(5, 6, 2, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(-4, 14); ctx.lineTo(4, 14); ctx.stroke();
     }
   },
   {
-    id: 'suit_solar', name: 'Solar Cloak', icon: '☀️', desc: 'Jubah plasma tahan panas berwarna oranye membara.',
+    id: 'geo_triangle', name: 'Segitiga', icon: '🔺', desc: 'Bentuk geometri segitiga dengan ekspresi marah.',
     starPrice: 25, isUnlocked: false,
     draw(ctx, color) {
-      ctx.fillStyle = '#78350f'; ctx.strokeStyle = '#f97316'; ctx.lineWidth = 2;
-      ctx.shadowColor = '#f97316'; ctx.shadowBlur = 10;
-      ctx.beginPath();
-      ctx.moveTo(-16, 0); ctx.quadraticCurveTo(-20, 16, -12, 28);
-      ctx.lineTo(12, 28); ctx.quadraticCurveTo(20, 16, 16, 0);
-      ctx.closePath(); ctx.fill(); ctx.stroke();
-      ctx.fillStyle = color; ctx.shadowColor = color; ctx.shadowBlur = 14;
-      ctx.beginPath(); ctx.roundRect(-7, 6, 14, 10, 3); ctx.fill();
+      ctx.fillStyle = color; ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(0, -6); ctx.lineTo(16, 24); ctx.lineTo(-16, 24); ctx.closePath(); ctx.fill(); ctx.stroke();
+      // Emote (Angry)
+      ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(-4, 12, 2, 0, Math.PI*2); ctx.arc(4, 12, 2, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(-8, 8); ctx.lineTo(-2, 10); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(8, 8); ctx.lineTo(2, 10); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(-3, 18); ctx.lineTo(3, 18); ctx.stroke();
     }
   },
   {
-    id: 'suit_void', name: 'Void Robe', icon: '🌌', desc: 'Jubah kegelapan hampa dengan corak nebula berkilau.',
+    id: 'geo_hexagon', name: 'Heksagon', icon: '⬡', desc: 'Bentuk geometri heksagon dengan ekspresi kaget.',
     starPrice: 40, isUnlocked: false,
     draw(ctx, color) {
-      ctx.fillStyle = '#0f0728'; ctx.strokeStyle = '#a855f7'; ctx.lineWidth = 2;
-      ctx.shadowColor = '#a855f7'; ctx.shadowBlur = 10;
+      ctx.fillStyle = color; ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5;
       ctx.beginPath();
-      ctx.moveTo(-14, 0); ctx.lineTo(-18, 28); ctx.lineTo(18, 28); ctx.lineTo(14, 0); ctx.closePath();
-      ctx.fill(); ctx.stroke();
-      // Nebula dots
-      ctx.fillStyle = '#ffffff'; ctx.shadowBlur = 0;
-      [[-6,8],[5,14],[-3,21],[7,22]].forEach(([x,y]) => {
-        ctx.beginPath(); ctx.arc(x,y,1.5,0,Math.PI*2); ctx.fill();
-      });
-      ctx.fillStyle = color; ctx.shadowColor = color; ctx.shadowBlur = 12;
-      ctx.beginPath(); ctx.arc(0, 14, 5, 0, Math.PI*2); ctx.fill();
-    }
-  },
-  {
-    id: 'suit_gold', name: 'Gold Commander', icon: '🎖️', desc: 'Zirah emas komandan armada galaksi bermedali.',
-    starPrice: 60, isUnlocked: false,
-    draw(ctx, color) {
-      ctx.fillStyle = '#b45309'; ctx.strokeStyle = '#fbbf24'; ctx.lineWidth = 2;
-      ctx.shadowColor = '#fbbf24'; ctx.shadowBlur = 12;
-      ctx.beginPath(); ctx.ellipse(0, 14, 14, 16, 0, 0, Math.PI*2); ctx.fill(); ctx.stroke();
-      ctx.fillStyle = color; ctx.shadowColor = color; ctx.shadowBlur = 14;
-      ctx.beginPath(); ctx.roundRect(-7, 5, 14, 10, 3); ctx.fill();
-      // Medal
-      ctx.fillStyle = '#fbbf24'; ctx.shadowColor = '#fbbf24'; ctx.shadowBlur = 8;
-      ctx.beginPath(); ctx.arc(-5, 20, 4, 0, Math.PI*2); ctx.fill();
-    }
-  },
-  {
-    id: 'suit_rocket', name: 'Rocket Shell', icon: '🚀', desc: 'Kapsul roket padat dengan hidung aerodinamis runcing.',
-    starPrice: 80, isUnlocked: false,
-    draw(ctx, color) {
-      ctx.fillStyle = '#e2e8f0'; ctx.strokeStyle = '#ef4444'; ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(0, 0); ctx.lineTo(14, 28); ctx.lineTo(-14, 28); ctx.closePath();
-      ctx.fill(); ctx.stroke();
-      ctx.fillStyle = color; ctx.shadowColor = color; ctx.shadowBlur = 12;
-      ctx.beginPath(); ctx.arc(0, 18, 5, 0, Math.PI*2); ctx.fill();
+      for (let i = 0; i < 6; i++) {
+        const a = i * Math.PI / 3 + Math.PI/2;
+        const r = 18;
+        if (i===0) ctx.moveTo(Math.cos(a)*r, 10 + Math.sin(a)*r);
+        else ctx.lineTo(Math.cos(a)*r, 10 + Math.sin(a)*r);
+      }
+      ctx.closePath(); ctx.fill(); ctx.stroke();
+      // Emote (Surprised)
+      ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(-5, 6, 2.5, 0, Math.PI*2); ctx.arc(5, 6, 2.5, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(0, 14, 3, 0, Math.PI*2); ctx.fill();
     }
   }
 ];
@@ -282,16 +253,27 @@ function drawAstronaut(ctx, x, y, radius, color, rot, vy, helmId, bodyId, jetpac
   ctx.restore();
 }
 
+// ─── COLOR PALETTES ────────────────────────────────────────────────────────
+const COLOR_PALETTES = [
+  { id: 'pal_default', name: 'Original Map Colors', icon: '🎨', desc: 'Menggunakan warna bawaan dari masing-masing sektor.', starPrice: 0, isUnlocked: true },
+  { id: 'pal_neon', name: 'Neon Cyber', icon: '🚥', desc: 'Warna-warna neon menyala khas cyberpunk.', starPrice: 20, isUnlocked: false, colors: ['#ff007a', '#00f5d4', '#fee440', '#9d4edd'] },
+  { id: 'pal_pastel', name: 'Soft Pastel', icon: '🌸', desc: 'Kombinasi warna pastel yang lembut di mata.', starPrice: 35, isUnlocked: false, colors: ['#ffb3ba', '#ffdfba', '#ffffba', '#baffc9'] },
+  { id: 'pal_monochrome', name: 'Grayscale', icon: '📓', desc: 'Tantangan klasik hitam putih yang membingungkan.', starPrice: 50, isUnlocked: false, colors: ['#ffffff', '#aaaaaa', '#666666', '#222222'] },
+  { id: 'pal_fire', name: 'Inferno', icon: '🔥', desc: 'Tema api merah, oranye, dan kuning yang membara.', starPrice: 65, isUnlocked: false, colors: ['#ef4444', '#f97316', '#facc15', '#ea580c'] }
+];
+
 // ─── SKIN MANAGER (Character Builder) ───────────────────────────────────────
 class SkinManager {
   constructor() {
     this.helmParts    = HELM_PARTS;
     this.bodyParts    = BODY_PARTS;
     this.jetpackParts = JETPACK_PARTS;
+    this.palettes     = COLOR_PALETTES;
 
     this.activeHelm    = localStorage.getItem('cp_active_helm')    || 'visor_neo';
-    this.activeBody    = localStorage.getItem('cp_active_body')    || 'suit_white';
+    this.activeBody    = localStorage.getItem('cp_active_body')    || 'geo_circle';
     this.activeJetpack = localStorage.getItem('cp_active_jetpack') || 'jet_plasma';
+    this.activePalette = localStorage.getItem('cp_active_palette') || 'pal_default';
 
     // Legacy trail support
     this.activeTrailId = localStorage.getItem('cp_active_trail') || 'plasma';
@@ -309,6 +291,7 @@ class SkinManager {
     tryLoad('cp_unlocked_helms',    this.helmParts);
     tryLoad('cp_unlocked_bodies',   this.bodyParts);
     tryLoad('cp_unlocked_jetpacks', this.jetpackParts);
+    tryLoad('cp_unlocked_palettes', this.palettes);
   }
 
   saveUnlockedData() {
@@ -316,6 +299,7 @@ class SkinManager {
     save('cp_unlocked_helms',    this.helmParts);
     save('cp_unlocked_bodies',   this.bodyParts);
     save('cp_unlocked_jetpacks', this.jetpackParts);
+    save('cp_unlocked_palettes', this.palettes);
   }
 
   getActiveConfig() {
@@ -375,6 +359,19 @@ class SkinManager {
     }
     this.activeJetpack = id;
     localStorage.setItem('cp_active_jetpack', id);
+    return true;
+  }
+
+  selectPalette(id, playerStars) {
+    const p = this.palettes.find(c=>c.id===id);
+    if (!p) return false;
+    if (!p.isUnlocked) {
+      if (playerStars < p.starPrice) return false;
+      p.isUnlocked = true;
+      this.saveUnlockedData();
+    }
+    this.activePalette = id;
+    localStorage.setItem('cp_active_palette', id);
     return true;
   }
 

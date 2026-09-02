@@ -486,8 +486,10 @@ class DoubleCircleObstacle {
 // 3. CROSS OBSTACLE (map-themed spinning arms)
 // ============================================================
 class CrossObstacle {
-  constructor(y, armLen = 85, thickness = 15, speed = 0.022, colors = [], centerX = 480, mapId = 'cyber') {
-    this.type = 'cross'; this.y = y; this.x = centerX;
+  constructor(y, armLen = 130, thickness = 15, speed = 0.022, colors = [], centerX = 480, mapId = 'cyber') {
+    this.type = 'cross'; this.y = y; 
+    // Geser lebih jauh ke kiri sehingga bintang (di centerX) berada di 1/5 ujung baling-baling
+    this.x = centerX - 104;
     this.armLen = armLen; this.thickness = thickness;
     this.speed = speed; this.angle = 0;
     this.colors = colors; this.mapId = mapId; this.passed = false;
@@ -586,8 +588,8 @@ class SlidingBarsObstacle {
     ctx.moveTo(0, cy + this.thickness/2 + 4); ctx.lineTo(this.screenWidth, cy + this.thickness/2 + 4);
     ctx.stroke();
 
-    const count = Math.ceil(this.screenWidth / this.barWidth) + 4;
-    for (let i = -2; i < count; i++) {
+    const count = Math.ceil(this.screenWidth / this.barWidth) + 8;
+    for (let i = -8; i < count; i++) {
       const color = this.colors[(i + 40) % 4];
       const bx = i * this.barWidth + this.offset - this.barWidth;
 
@@ -813,20 +815,33 @@ class StarItem {
 // 8. FINISH GATE
 // ============================================================
 class FinishGate {
-  constructor(y, x = 480) {
-    this.x = x; this.y = y; this.radius = 36;
-    this.rot = 0; this.passed = false;
+  constructor(y, x = 480, mapId = 'cyber') {
+    this.x = x; this.y = y; this.radius = 45;
+    this.rot = 0; this.passed = false; this.mapId = mapId;
   }
-  update() { this.rot += 0.05; }
+  update() { this.rot += 0.02; }
   draw(ctx, cameraY) {
     const sy = this.y - cameraY;
     ctx.save(); ctx.translate(this.x, sy); ctx.rotate(this.rot);
-    ctx.strokeStyle='#00f5d4'; ctx.shadowColor='#00f5d4'; ctx.shadowBlur=20; ctx.lineWidth=5;
-    ctx.beginPath(); ctx.arc(0,0,this.radius,0,Math.PI*2); ctx.stroke();
-    ctx.strokeStyle='#fee440'; ctx.lineWidth=3;
-    ctx.beginPath(); ctx.arc(0,0,this.radius*0.68,0,Math.PI*2); ctx.stroke();
-    ctx.fillStyle='#ffffff'; ctx.font='26px sans-serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
-    ctx.fillText('🚀',0,0);
+    
+    if (this.mapId === 'lava') {
+      ctx.fillStyle = '#ea580c'; ctx.shadowColor = '#ea580c'; ctx.shadowBlur = 30;
+      ctx.beginPath(); ctx.arc(0,0,this.radius,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#7c2d12'; ctx.beginPath(); ctx.arc(-10,-10,8,0,Math.PI*2); ctx.fill();
+    } else if (this.mapId === 'frost') {
+      ctx.fillStyle = '#0284c7'; ctx.shadowColor = '#38bdf8'; ctx.shadowBlur = 30;
+      ctx.beginPath(); ctx.arc(0,0,this.radius,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#e0f2fe'; ctx.beginPath(); ctx.moveTo(-20,0); ctx.lineTo(0,-20); ctx.lineTo(20,0); ctx.lineTo(0,20); ctx.fill();
+    } else if (this.mapId === 'galaxy') {
+      ctx.fillStyle = '#4c1d95'; ctx.shadowColor = '#8b5cf6'; ctx.shadowBlur = 30;
+      ctx.beginPath(); ctx.arc(0,0,this.radius,0,Math.PI*2); ctx.fill();
+      ctx.strokeStyle = '#c4b5fd'; ctx.lineWidth = 4; ctx.beginPath(); ctx.ellipse(0,0,this.radius+15,10,Math.PI/6,0,Math.PI*2); ctx.stroke();
+    } else {
+      ctx.fillStyle = '#0f172a'; ctx.strokeStyle = '#00f5d4'; ctx.shadowColor = '#00f5d4'; ctx.shadowBlur = 20; ctx.lineWidth = 4;
+      ctx.beginPath(); ctx.arc(0,0,this.radius,0,Math.PI*2); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#00f5d4'; ctx.fillRect(-15, -15, 12, 12); ctx.fillRect(3, 3, 12, 12);
+    }
+    
     ctx.restore();
   }
   checkCollision(ball) {
